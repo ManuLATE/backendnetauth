@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace backendnet.Services;
 
-public class JwtTokenService(IConfiguration configuration, IHttpContextAccessor httpContextAccesor)
+public class JwtTokenService(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
 {
     public string GeneraToken(List<Claim> claims)
     {

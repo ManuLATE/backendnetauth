@@ -2,11 +2,13 @@ using backendnet.Data;
 using backendnet.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backendnet.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize(Roles = "Administrador")]
 public class RolesController(IdentityContext context) : Controller
 {
     [HttpGet]

@@ -3,6 +3,8 @@ using backendnet.Models;
 using backendnet.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace backendnet.Controllers;
 
@@ -29,7 +31,7 @@ public class AuthController(UserManager<CustomIdentityUser> userManager, JwtToke
         };
 
         var jwt = jwtTokenService.GeneraToken(claims);
-        return ok(new
+        return Ok(new
         {
             usuario.Email,
             usuario.Nombre,
@@ -45,7 +47,7 @@ public class AuthController(UserManager<CustomIdentityUser> userManager, JwtToke
         string? tiempo = jwtTokenService.TiempoRestanteToken();
         if(tiempo is null)
             return BadRequest();
-        return ok(tiempo);
+        return Ok(tiempo);
     }
     
 }

@@ -3,12 +3,13 @@ using backendnet.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backendnet.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-
+[Authorize(Roles = "Administrador")]
 public class UsuariosController(IdentityContext context, UserManager<CustomIdentityUser> UserManager) : Controller
 {
     //GET: api/usuarios
@@ -123,6 +124,6 @@ public class UsuariosController(IdentityContext context, UserManager<CustomIdent
     private string GetUserRol(CustomIdentityUser usuario)
     {
         var roles = UserManager.GetRolesAsync(usuario).Result;
-        return roles.Fisrt();
+        return roles.First();
     }
 }

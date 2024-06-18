@@ -21,7 +21,7 @@ public class SlidingExpirationJwt(RequestDelegate next)
                 {
                     var claims = new List<Claim>
                     {
-                        new(ClaimTypes.Name, context.User.FindFirstValue(claimTypes.Name)!),
+                        new(ClaimTypes.Name, context.User.FindFirstValue(ClaimTypes.Name)!),
                         new(ClaimTypes.GivenName, context.User.FindFirstValue(ClaimTypes.GivenName)!),
                         new(ClaimTypes.Role, context.User.FindFirstValue(ClaimTypes.Role)!)
                     };
@@ -39,7 +39,7 @@ public class SlidingExpirationJwt(RequestDelegate next)
 
 public static class SlidingExpirationJwtExtensions
 {
-    public static IApplicationBuilder UsesSlidingExpirationJwt(this IApplicationBuilder builder)
+    public static IApplicationBuilder UseSlidingExpirationJwt(this IApplicationBuilder builder)
     {
         return builder.UseMiddleware<SlidingExpirationJwt>();
     }

@@ -3,6 +3,7 @@ using backendnet.Data;
 using backendnet.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backendnet.Controllers;
 
