@@ -10,13 +10,13 @@ public class JwtTokenService(IConfiguration configuration, IHttpContextAccessor 
     public string GeneraToken(List<Claim> claims)
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Secret"]!));
-        var credentials = new SigninCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
         var tokenDescriptor = new JwtSecurityToken(
             issuer: configuration["Jwt:Issuer"],
             audience: configuration["jwtAudience"],
             claims: claims,
             expires: DateTime.Now.AddMinutes(20),
-            signinCredentials: credentials);
+            signingCredentials: credentials);
 
         var jwt = new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
 
