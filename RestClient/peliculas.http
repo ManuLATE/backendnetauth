@@ -1,0 +1,34 @@
+GET http://localhost:3000/api/peliculas
+
+###
+
+GET http://localhost:3000/api/peliculas?s=Dun
+
+###
+
+GET http://localhost:3000/api/peliculas/16
+
+###
+
+POST http://localhost:3000/api/peliculas
+Content-Type: application/json
+
+{
+    "titulo": "Pelicula de prueba"
+}
+
+###
+
+PUT http://localhost:3000/api/peliculas/16
+Content-Type: application/application/json
+
+{
+    "peliculaid": 16,
+    "titulo": "Pelicula de prueba editada"
+}
+
+###
+
+DELETE http://localhost:3000/api/peliculas/17
+
+

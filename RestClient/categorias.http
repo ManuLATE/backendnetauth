@@ -1,0 +1,28 @@
+GET http://localhost:3000/api/categorias
+
+###
+
+GET http://localhost:3000/api/categorias/16
+
+###
+
+POST http://localhost:3000/api/categorias
+Content-Type: application/json
+
+{
+    "nombre": "Categoria de prueba"
+}
+
+###
+
+PUT http://localhost:3000/api/categorias/16
+Content-Type: application/application/json
+
+{
+    "categoriaid": 16,
+    "nombre": "Categoria de prueba editada"
+}
+
+###
+
+DELETE http://localhost:3000/api/categorias/16
