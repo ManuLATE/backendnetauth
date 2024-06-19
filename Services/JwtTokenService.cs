@@ -13,7 +13,7 @@ public class JwtTokenService(IConfiguration configuration, IHttpContextAccessor 
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
         var tokenDescriptor = new JwtSecurityToken(
             issuer: configuration["Jwt:Issuer"],
-            audience: configuration["jwtAudience"],
+            audience: configuration["jwt:Audience"],
             claims: claims,
             expires: DateTime.Now.AddMinutes(20),
             signingCredentials: credentials);

@@ -17,7 +17,7 @@ public class SlidingExpirationJwt(RequestDelegate next)
             if(token != null && token.ValidTo > DateTime.UtcNow)
             {
                 TimeSpan timeRemaining = token.ValidTo.Subtract(DateTime.UtcNow);
-                if(timeRemaining.Minutes < 5)
+                if(timeRemaining.Minutes < 19)
                 {
                     var claims = new List<Claim>
                     {
